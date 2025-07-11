@@ -1,0 +1,27 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: apache-service 
+spec:
+  selector:
+    app: apache
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 80
+  type: ClusterIP
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service 
+spec:
+  selector:
+    app: httpd
+  ports:
+  - protocol: TCP
+    port: 3001
+    targetPort: 80
+  type: ClusterIP
